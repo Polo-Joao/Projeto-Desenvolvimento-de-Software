@@ -1,0 +1,22 @@
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# React / Node
+node_modules/
+dist/
+
+# Editores
+.vscode/
+
+# Banco local (SQLite)
+*.db
+*.sqlite3
+
+# Sistema operacional
+Thumbs.db
+.DS_Store
