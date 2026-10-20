@@ -1,7 +1,16 @@
-from fast api import FastAPI
+from fastapi import FastAPI
 from pydantic import BaseModel, Field
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="Doações entre Vizinhos")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class DoacaoCreate(BaseModel):
     titulo: str = Field(min_length=3, max_length=100)
