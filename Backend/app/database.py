@@ -1,12 +1,14 @@
 
 import os
+from pathlib import Path
 
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.engine import URL
 from sqlalchemy.orm import declarative_base, sessionmaker
 
-load_dotenv()
+# Procura o .env em Backend/, independente da pasta de onde o comando é executado
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 DATABASE_URL = URL.create(
     drivername="postgresql+psycopg",
