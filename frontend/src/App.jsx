@@ -16,7 +16,7 @@ function App() {
 
         const dados = await resposta.json();
         setDoacoes(dados);
-      } catch (erro) {
+      } catch {
         setErro("Não foi possível conectar à API. Verifique se o backend está funcionando.");
       } finally {
         setCarregando(false);

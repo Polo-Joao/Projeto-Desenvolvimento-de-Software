@@ -28,3 +28,12 @@ SessionLocal = sessionmaker(
 )
 
 Base = declarative_base()
+
+
+def get_db():
+    """Abre uma sessão do banco por requisição e garante que ela seja fechada."""
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
