@@ -1,11 +1,13 @@
-const API_URL = import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000";
+const API_URL = import.meta.env?.VITE_API_URL ?? "http://127.0.0.1:8000";
 
 async function requisitar(caminho, opcoes) {
   let resposta;
   try {
     resposta = await fetch(`${API_URL}${caminho}`, opcoes);
   } catch {
-    throw new Error("Não foi possível conectar à API. Verifique se o backend está funcionando.");
+    throw new Error(
+      "Não foi possível conectar à API. Verifique se o backend está funcionando.",
+    );
   }
 
   if (!resposta.ok) {
